@@ -2,7 +2,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Acfeel.QuickInput
+namespace Acfeel.QInput
 {
     public static class StartupInitializer {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -14,20 +14,20 @@ namespace Acfeel.QuickInput
     }
 
     public class Initializer : SingletonMonoBehaviour<Initializer> {
-        private CancellationTokenSource quickInputUpdateCts;
-        private CancellationTokenSource quickInputSlowUpdateCts;
+        private CancellationTokenSource QInputUpdateCts;
+        private CancellationTokenSource QInputSlowUpdateCts;
         void Start() {
-            quickInputUpdateCts = new CancellationTokenSource();
-            quickInputSlowUpdateCts = new CancellationTokenSource();
-            InputLoop.RunFlickUpdate(quickInputUpdateCts.Token).Forget();
-            InputLoop.RunSlowUpdate(quickInputSlowUpdateCts.Token).Forget();
+            QInputUpdateCts = new CancellationTokenSource();
+            QInputSlowUpdateCts = new CancellationTokenSource();
+            InputLoop.RunFlickUpdate(QInputUpdateCts.Token).Forget();
+            InputLoop.RunSlowUpdate(QInputSlowUpdateCts.Token).Forget();
             System.Globalization.CultureInfo.CurrentCulture = new System.Globalization.CultureInfo("en-us");
         }
         void OnApplicationQuit() {
-            quickInputUpdateCts.Cancel();
-            quickInputUpdateCts.Dispose();
-            quickInputSlowUpdateCts.Cancel();
-            quickInputSlowUpdateCts.Dispose();
+            QInputUpdateCts.Cancel();
+            QInputUpdateCts.Dispose();
+            QInputSlowUpdateCts.Cancel();
+            QInputSlowUpdateCts.Dispose();
         }
     }
 }

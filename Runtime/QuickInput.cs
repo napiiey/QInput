@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Acfeel.QuickInput
+namespace Acfeel.QInput
 {
-    public static class QuickInput
+    public static class QInput
     {
         // Flick Properties
         public static bool IsFlicking => InputState.IsFlicking;

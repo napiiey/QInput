@@ -1,7 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace Acfeel.QuickInput
+namespace Acfeel.QInput
 {
     public static class InputLoop
     {

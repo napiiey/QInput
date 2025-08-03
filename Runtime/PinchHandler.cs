@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Acfeel.QuickInput
+namespace Acfeel.QInput
 {
     public static class PinchHandler
     {

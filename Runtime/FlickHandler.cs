@@ -3,7 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Acfeel.QuickInput
+namespace Acfeel.QInput
 {
     public static class FlickHandler
     {
@@ -16,21 +16,21 @@ namespace Acfeel.QuickInput
                 if (token.IsCancellationRequested) break;
 
                 //フリック関連
-                if (QuickInput.ClickPressed())
+                if (QInput.ClickPressed())
                 {
                     InputState.FlickTime = 0;
-                    InputState.FlickStartPosition = QuickInput.ClickPosition();
+                    InputState.FlickStartPosition = QInput.ClickPosition();
                 }
-                if (QuickInput.Click())
+                if (QInput.Click())
                 {
-                    InputState.FlickEndPosition = QuickInput.ClickPosition();
+                    InputState.FlickEndPosition = QInput.ClickPosition();
                     InputState.FlickTime++;
                 }
                 if (InputState.IsFlicking)
                 {
                     ResetFlick().Forget(); //1フレームだけtrueにしたいので次のフレームでは切る
                 }
-                if (QuickInput.ClickReleased())
+                if (QInput.ClickReleased())
                 {
                     InputState.FlickDistance = new Vector2(
                         (InputState.FlickEndPosition.x - InputState.FlickStartPosition.x) / Screen.height,

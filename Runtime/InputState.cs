@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Acfeel.QuickInput
+namespace Acfeel.QInput
 {
     public static class InputState
     {
