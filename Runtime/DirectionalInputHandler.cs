@@ -10,56 +10,56 @@ namespace Acfeel.QInput
             return Gamepad.current != null && Gamepad.current.dpad.up.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.wKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.upArrowKey.wasPressedThisFrame
-            || InputState.ScreenPadUDown;
+            || InputState.ScreenPadUPressed;
         }
         public static bool DownPressed()
         {
             return Gamepad.current != null && Gamepad.current.dpad.down.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.sKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.downArrowKey.wasPressedThisFrame
-            || InputState.ScreenPadDDown;
+            || InputState.ScreenPadDPressed;
         }
         public static bool LeftPressed()
         {
             return Gamepad.current != null && Gamepad.current.dpad.left.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.aKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.leftArrowKey.wasPressedThisFrame
-            || InputState.ScreenPadLDown;
+            || InputState.ScreenPadLPressed;
         }
         public static bool RightPressed()
         {
             return Gamepad.current != null && Gamepad.current.dpad.right.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.dKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.rightArrowKey.wasPressedThisFrame
-            || InputState.ScreenPadRDown;
+            || InputState.ScreenPadRPressed;
         }
         public static bool UpReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.up.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.wKey.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.upArrowKey.wasReleasedThisFrame
-            || InputState.ScreenPadUUp;
+            || InputState.ScreenPadUReleased;
         }
         public static bool DownReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.down.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.sKey.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.downArrowKey.wasReleasedThisFrame
-            || InputState.ScreenPadDUp;
+            || InputState.ScreenPadDReleased;
         }
         public static bool LeftReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.left.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.aKey.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.leftArrowKey.wasReleasedThisFrame
-            || InputState.ScreenPadLUp;
+            || InputState.ScreenPadLReleased;
         }
         public static bool RightReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.right.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.dKey.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.rightArrowKey.wasReleasedThisFrame
-            || InputState.ScreenPadRUp;
+            || InputState.ScreenPadRReleased;
         }
         public static bool Up()
         {

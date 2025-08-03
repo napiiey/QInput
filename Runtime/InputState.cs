@@ -13,14 +13,14 @@ namespace Acfeel.QInput
         public static bool ScreenPadD;
         public static bool ScreenPadL;
         public static bool ScreenPadR;
-        public static bool ScreenPadUUp;
-        public static bool ScreenPadDUp;
-        public static bool ScreenPadLUp;
-        public static bool ScreenPadRUp;
-        public static bool ScreenPadUDown;
-        public static bool ScreenPadDDown;
-        public static bool ScreenPadLDown;
-        public static bool ScreenPadRDown;
+        public static bool ScreenPadUPressed;
+        public static bool ScreenPadDPressed;
+        public static bool ScreenPadLPressed;
+        public static bool ScreenPadRPressed;
+        public static bool ScreenPadUReleased;
+        public static bool ScreenPadDReleased;
+        public static bool ScreenPadLReleased;
+        public static bool ScreenPadRReleased;
 
         // Pinch state
         public static float BasePinchDistance;
