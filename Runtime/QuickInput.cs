@@ -13,7 +13,7 @@ namespace Acfeel.QuickInput
         public static int FlickTime => InputState.FlickTime;
 
         // Ok / Confirm
-        public static bool OkDown()
+        public static bool OkPressed()
         {
             return Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame
@@ -22,7 +22,7 @@ namespace Acfeel.QuickInput
 
         public static bool OkDownCt(int ct = 1)
         {
-            if (OkDown() && InputState.ClickCt >= ct) { InputState.ClickCt = 0; return true; }
+            if (OkPressed() && InputState.ClickCt >= ct) { InputState.ClickCt = 0; return true; }
             return false;
         }
 
@@ -33,9 +33,9 @@ namespace Acfeel.QuickInput
             || Keyboard.current != null && Keyboard.current.spaceKey.isPressed;
         }
 
-        public static bool OkClickDown()
+        public static bool OkClickPressed()
         {
-            return OkDown()
+            return OkPressed()
             || Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame
             || Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
         }
@@ -48,13 +48,13 @@ namespace Acfeel.QuickInput
         }
 
         // Click / Touch
-        public static bool ClickDown()
+        public static bool ClickPressed()
         {
             return Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame
             || Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
         }
 
-        public static bool ClickUp()
+        public static bool ClickReleased()
         {
             return Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame
             || Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasReleasedThisFrame;
@@ -80,7 +80,7 @@ namespace Acfeel.QuickInput
         }
 
         // Cancel
-        public static bool CancelDown()
+        public static bool CancelPressed()
         {
             return Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame;
@@ -88,7 +88,7 @@ namespace Acfeel.QuickInput
 
         public static bool CancelDownCt(int ct = 1)
         {
-            if (CancelDown() && InputState.ClickCt >= ct) { InputState.ClickCt = 0; return true; }
+            if (CancelPressed() && InputState.ClickCt >= ct) { InputState.ClickCt = 0; return true; }
             return false;
         }
 
@@ -98,9 +98,9 @@ namespace Acfeel.QuickInput
             || Keyboard.current != null && Keyboard.current.escapeKey.isPressed;
         }
 
-        public static bool CancelClickDown()
+        public static bool CancelClickPressed()
         {
-            return CancelDown()
+            return CancelPressed()
             || Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame
             || Touchscreen.current != null && Touchscreen.current.touches.Count > 1 && Touchscreen.current.touches[1].press.wasPressedThisFrame;
         }
@@ -113,7 +113,7 @@ namespace Acfeel.QuickInput
         }
 
         // Mouse Specific
-        public static bool LeftClickDown()
+        public static bool LeftClickPressed()
         {
             return Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
         }
@@ -123,7 +123,7 @@ namespace Acfeel.QuickInput
             return Mouse.current != null && Mouse.current.leftButton.isPressed;
         }
 
-        public static bool RightClickDown()
+        public static bool RightClickPressed()
         {
             return Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame;
         }
@@ -139,25 +139,25 @@ namespace Acfeel.QuickInput
             return Mouse.current.scroll.ReadValue().y;
         }
 
-        public static bool WheelUp()
+        public static bool WheelReleased()
         {
             return Mouse.current != null && Mouse.current.scroll.ReadValue().y > 0;
         }
 
-        public static bool WheelDown()
+        public static bool WheelPressed()
         {
             return Mouse.current != null && Mouse.current.scroll.ReadValue().y < 0;
         }
 
         // Directional
-        public static bool UpDown() => DirectionalInputHandler.UpDown();
-        public static bool DownDown() => DirectionalInputHandler.DownDown();
-        public static bool LeftDown() => DirectionalInputHandler.LeftDown();
-        public static bool RightDown() => DirectionalInputHandler.RightDown();
-        public static bool UpUp() => DirectionalInputHandler.UpUp();
-        public static bool DownUp() => DirectionalInputHandler.DownUp();
-        public static bool LeftUp() => DirectionalInputHandler.LeftUp();
-        public static bool RightUp() => DirectionalInputHandler.RightUp();
+        public static bool UpPressed() => DirectionalInputHandler.UpPressed();
+        public static bool DownPressed() => DirectionalInputHandler.DownPressed();
+        public static bool LeftPressed() => DirectionalInputHandler.LeftPressed();
+        public static bool RightPressed() => DirectionalInputHandler.RightPressed();
+        public static bool UpReleased() => DirectionalInputHandler.UpReleased();
+        public static bool DownReleased() => DirectionalInputHandler.DownReleased();
+        public static bool LeftReleased() => DirectionalInputHandler.LeftReleased();
+        public static bool RightReleased() => DirectionalInputHandler.RightReleased();
         public static bool Up() => DirectionalInputHandler.Up();
         public static bool Down() => DirectionalInputHandler.Down();
         public static bool Left() => DirectionalInputHandler.Left();
@@ -166,8 +166,8 @@ namespace Acfeel.QuickInput
         public static bool DownRepeated() => DirectionalInputHandler.DownRepeated();
         public static bool LeftRepeated() => DirectionalInputHandler.LeftRepeated();
         public static bool RightRepeated() => DirectionalInputHandler.RightRepeated();
-        public static bool UdlrDown() => UpDown() || DownDown() || LeftDown() || RightDown();
-        public static bool UdlrUp() => UpUp() || DownUp() || LeftUp() || RightUp();
+        public static bool UdlrPressed() => UpPressed() || DownPressed() || LeftPressed() || RightPressed();
+        public static bool UdlrReleased() => UpReleased() || DownReleased() || LeftReleased() || RightReleased();
         public static bool Udlr() => Up() || Down() || Left() || Right();
         public static Vector2 Direction() => DirectionalInputHandler.Direction();
         public static Vector3 Movement() => new Vector3(Direction().x, 0f, Direction().y);
@@ -175,24 +175,24 @@ namespace Acfeel.QuickInput
         public static float GetAxisVertical() => Direction().y;
 
         // Gamepad Buttons
-        public static bool NorthDown() => Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame;
-        public static bool SouthDown() => Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame;
-        public static bool EastDown() => Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame;
-        public static bool WestDown() => Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame;
-        public static bool LeftShoulderDown() => Gamepad.current != null && Gamepad.current.leftShoulder.wasPressedThisFrame;
-        public static bool RightShoulderDown() => Gamepad.current != null && Gamepad.current.rightShoulder.wasPressedThisFrame;
-        public static bool LeftTriggerDown() => Gamepad.current != null && Gamepad.current.leftTrigger.wasPressedThisFrame;
-        public static bool RightTriggerDown() => Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame;
+        public static bool NorthPressed() => Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame;
+        public static bool SouthPressed() => Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame;
+        public static bool EastPressed() => Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame;
+        public static bool WestPressed() => Gamepad.current != null && Gamepad.current.buttonWest.wasPressedThisFrame;
+        public static bool LeftShoulderPressed() => Gamepad.current != null && Gamepad.current.leftShoulder.wasPressedThisFrame;
+        public static bool RightShoulderPressed() => Gamepad.current != null && Gamepad.current.rightShoulder.wasPressedThisFrame;
+        public static bool LeftTriggerPressed() => Gamepad.current != null && Gamepad.current.leftTrigger.wasPressedThisFrame;
+        public static bool RightTriggerPressed() => Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame;
 
         // Screen Pad
-        public static void ScreenPadUDown() => ScreenPadHandler.ScreenPadUDown();
-        public static void ScreenPadDDown() => ScreenPadHandler.ScreenPadDDown();
-        public static void ScreenPadLDown() => ScreenPadHandler.ScreenPadLDown();
-        public static void ScreenPadRDown() => ScreenPadHandler.ScreenPadRDown();
-        public static void ScreenPadUUp() => ScreenPadHandler.ScreenPadUUp();
-        public static void ScreenPadDUp() => ScreenPadHandler.ScreenPadDUp();
-        public static void ScreenPadLUp() => ScreenPadHandler.ScreenPadLUp();
-        public static void ScreenPadRUp() => ScreenPadHandler.ScreenPadRUp();
+        public static void ScreenPadUPressed() => ScreenPadHandler.ScreenPadUPressed();
+        public static void ScreenPadDPressed() => ScreenPadHandler.ScreenPadDPressed();
+        public static void ScreenPadLPressed() => ScreenPadHandler.ScreenPadLPressed();
+        public static void ScreenPadRPressed() => ScreenPadHandler.ScreenPadRPressed();
+        public static void ScreenPadUReleased() => ScreenPadHandler.ScreenPadUReleased();
+        public static void ScreenPadDReleased() => ScreenPadHandler.ScreenPadDReleased();
+        public static void ScreenPadLReleased() => ScreenPadHandler.ScreenPadLReleased();
+        public static void ScreenPadRReleased() => ScreenPadHandler.ScreenPadRReleased();
 
         // Pinch
         public static float PinchUpdate() => PinchHandler.PinchUpdate();

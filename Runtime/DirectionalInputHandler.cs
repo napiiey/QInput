@@ -5,56 +5,56 @@ namespace Acfeel.QuickInput
 {
     public static class DirectionalInputHandler
     {
-        public static bool UpDown()
+        public static bool UpPressed()
         {
             return Gamepad.current != null && Gamepad.current.dpad.up.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.wKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.upArrowKey.wasPressedThisFrame
             || InputState.ScreenPadUDown;
         }
-        public static bool DownDown()
+        public static bool DownPressed()
         {
             return Gamepad.current != null && Gamepad.current.dpad.down.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.sKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.downArrowKey.wasPressedThisFrame
             || InputState.ScreenPadDDown;
         }
-        public static bool LeftDown()
+        public static bool LeftPressed()
         {
             return Gamepad.current != null && Gamepad.current.dpad.left.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.aKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.leftArrowKey.wasPressedThisFrame
             || InputState.ScreenPadLDown;
         }
-        public static bool RightDown()
+        public static bool RightPressed()
         {
             return Gamepad.current != null && Gamepad.current.dpad.right.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.dKey.wasPressedThisFrame
             || Keyboard.current != null && Keyboard.current.rightArrowKey.wasPressedThisFrame
             || InputState.ScreenPadRDown;
         }
-        public static bool UpUp()
+        public static bool UpReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.up.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.wKey.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.upArrowKey.wasReleasedThisFrame
             || InputState.ScreenPadUUp;
         }
-        public static bool DownUp()
+        public static bool DownReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.down.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.sKey.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.downArrowKey.wasReleasedThisFrame
             || InputState.ScreenPadDUp;
         }
-        public static bool LeftUp()
+        public static bool LeftReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.left.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.aKey.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.leftArrowKey.wasReleasedThisFrame
             || InputState.ScreenPadLUp;
         }
-        public static bool RightUp()
+        public static bool RightReleased()
         {
             return Gamepad.current != null && Gamepad.current.dpad.right.wasReleasedThisFrame
             || Keyboard.current != null && Keyboard.current.dKey.wasReleasedThisFrame
@@ -92,25 +92,25 @@ namespace Acfeel.QuickInput
 
         public static bool UpRepeated()
         {
-            if (UpDown()) { InputState.ClickCt = 0; return true; }
+            if (UpPressed()) { InputState.ClickCt = 0; return true; }
             if (Up() && InputState.ClickCt >= InputLoop.RepeatStart && InputState.RepeatCt >= InputLoop.RepeatDuration) { InputState.RepeatCt = 0; return true; }
             return false;
         }
         public static bool DownRepeated()
         {
-            if (DownDown()) { InputState.ClickCt = 0; return true; }
+            if (DownPressed()) { InputState.ClickCt = 0; return true; }
             if (Down() && InputState.ClickCt >= InputLoop.RepeatStart && InputState.RepeatCt >= InputLoop.RepeatDuration) { InputState.RepeatCt = 0; return true; }
             return false;
         }
         public static bool LeftRepeated()
         {
-            if (LeftDown()) { InputState.ClickCt = 0; return true; }
+            if (LeftPressed()) { InputState.ClickCt = 0; return true; }
             if (Left() && InputState.ClickCt >= InputLoop.RepeatStart && InputState.RepeatCt >= InputLoop.RepeatDuration) { InputState.RepeatCt = 0; return true; }
             return false;
         }
         public static bool RightRepeated()
         {
-            if (RightDown()) { InputState.ClickCt = 0; return true; }
+            if (RightPressed()) { InputState.ClickCt = 0; return true; }
             if (Right() && InputState.ClickCt >= InputLoop.RepeatStart && InputState.RepeatCt >= InputLoop.RepeatDuration) { InputState.RepeatCt = 0; return true; }
             return false;
         }

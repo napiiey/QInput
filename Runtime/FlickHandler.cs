@@ -16,7 +16,7 @@ namespace Acfeel.QuickInput
                 if (token.IsCancellationRequested) break;
 
                 //フリック関連
-                if (QuickInput.ClickDown())
+                if (QuickInput.ClickPressed())
                 {
                     InputState.FlickTime = 0;
                     InputState.FlickStartPosition = QuickInput.ClickPosition();
@@ -30,7 +30,7 @@ namespace Acfeel.QuickInput
                 {
                     ResetFlick().Forget(); //1フレームだけtrueにしたいので次のフレームでは切る
                 }
-                if (QuickInput.ClickUp())
+                if (QuickInput.ClickReleased())
                 {
                     InputState.FlickDistance = new Vector2(
                         (InputState.FlickEndPosition.x - InputState.FlickStartPosition.x) / Screen.height,
