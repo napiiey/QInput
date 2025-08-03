@@ -1,2 +1,2 @@
-# QuickInput
+# QInput
 
