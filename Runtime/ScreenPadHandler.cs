@@ -14,50 +14,50 @@ namespace Acfeel.QInput
         public static void ScreenPadUPressed()
         {
             InputState.ScreenPadU = true;
-            InputState.ScreenPadUDown = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadUDown = false; }).Forget();
+            InputState.ScreenPadUPressed = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadUPressed = false; }).Forget();
         }
         public static void ScreenPadDPressed()
         {
             InputState.ScreenPadD = true;
-            InputState.ScreenPadDDown = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadDDown = false; }).Forget();
+            InputState.ScreenPadDPressed = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadDPressed = false; }).Forget();
         }
         public static void ScreenPadLPressed()
         {
             InputState.ScreenPadL = true;
-            InputState.ScreenPadLDown = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadLDown = false; }).Forget();
+            InputState.ScreenPadLPressed = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadLPressed = false; }).Forget();
         }
         public static void ScreenPadRPressed()
         {
             InputState.ScreenPadR = true;
-            InputState.ScreenPadRDown = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadRDown = false; }).Forget();
+            InputState.ScreenPadRPressed = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadRPressed = false; }).Forget();
         }
         public static void ScreenPadUReleased()
         {
             InputState.ScreenPadU = false;
-            InputState.ScreenPadUUp = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadUUp = false; }).Forget();
+            InputState.ScreenPadUReleased = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadUReleased = false; }).Forget();
         }
         public static void ScreenPadDReleased()
         {
             InputState.ScreenPadD = false;
-            InputState.ScreenPadDUp = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadDUp = false; }).Forget();
+            InputState.ScreenPadDReleased = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadDReleased = false; }).Forget();
         }
         public static void ScreenPadLReleased()
         {
             InputState.ScreenPadL = false;
-            InputState.ScreenPadLUp = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadLUp = false; }).Forget();
+            InputState.ScreenPadLReleased = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadLReleased = false; }).Forget();
         }
         public static void ScreenPadRReleased()
         {
             InputState.ScreenPadR = false;
-            InputState.ScreenPadRUp = true;
-            OneFrameRaterApply(() => { InputState.ScreenPadRUp = false; }).Forget();
+            InputState.ScreenPadRReleased = true;
+            OneFrameRaterApply(() => { InputState.ScreenPadRReleased = false; }).Forget();
         }
     }
 }
